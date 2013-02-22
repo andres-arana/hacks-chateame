@@ -1,0 +1,18 @@
+!!! 5
+html
+  head
+    title Chatea.me
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(href="assets/css/bootstrap.min.css", rel="stylesheet")
+    link(href="assets/css/main.css", rel="stylesheet")
+  body
+    .container
+      .navbar.navbar-inverse
+        .navbar-inner
+          a.brand(href="#") Chatea.me
+          .navbar-text
+            small super simple chat room
+      block content
+    script(src="http://code.jquery.com/jquery.js")
+    script(src="assets/js/bootstrap.min.js")
+    block scripts

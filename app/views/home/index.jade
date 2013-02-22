@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+  .row
+    .span8
+      .hero-unit
+        h1 Chatea.me
+        p Super simple chat room with realtime push notifications
+    .span4
+      div(style="text-align: center")
+        p You only need a Google account to start chatting.
+        .sign-in-container(style="margin-bottom: 20px;")
+          a.btn.btn-primary.btn-large(href="/chat") 
+            i.icon-user.icon-white
+            | &nbsp;Sign in
+        .alert.alert-info
+          | We wíll not store you account in any way, we just need it to
+          | display your username on the chat screen.
