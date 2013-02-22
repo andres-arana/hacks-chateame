@@ -8,6 +8,8 @@ Simple realtime chat room experiment using [node](http://nodejs.org/) and
 You'll need to set the following environment variables to host this application
 somewhere:
 
+* **COOKIE_KEY**: Signed cookie key
+
 * **PORT**: Port on which the http server will listen for inbound connections
 
 * **REALM**: Root url to the application. For example, `http://localhost:3000`.

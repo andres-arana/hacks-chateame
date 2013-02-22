@@ -1,18 +1,20 @@
-passport = require "passport"
 pusher = require "../lib/pusher"
 
-module.exports = (app) ->
-  app.get '/chat', 
-    passport.authenticate("google", { session: false}),
-    (req, res) ->
-      res.render "chat",
-        user: req.user.displayName,
-        pusherKey: process.env.PUSHER_APP_KEY
+requiresLogin = (req, res, next) ->
+  if req.user
+    next()
+  else
+    res.redirect("/auth/google") unless req.user
 
-  app.post '/chat/messages', (req, res) ->
+module.exports = (app) ->
+  app.get '/chat', requiresLogin, (req, res) ->
+    res.render "chat",
+      pusherKey: process.env.PUSHER_APP_KEY
+
+  app.post '/chat/messages', requiresLogin, (req, res) ->
     params = 
-      user: req.body.user
+      user: req.user.displayName
       message: req.body.message
-    pusher.trigger 'messages-channel', 'new-message', params, null, (err) ->
+    pusher.trigger 'subscribe-messages', 'new-message', params, null, (err) ->
       console.log err
 

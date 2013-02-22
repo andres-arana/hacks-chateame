@@ -9,6 +9,7 @@ module.exports =
 
     require("./routes/home")(app)
     require("./routes/chat")(app)
+    require("./routes/auth")(app)
 
     app.listen process.env.PORT
     console.log "Application ready and listening on port #{process.env.PORT}"

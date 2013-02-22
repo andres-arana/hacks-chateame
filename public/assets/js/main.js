@@ -17,7 +17,7 @@ $(document).ready(function() {
 
   var key = $("#pusher-key").val();
   var pusher = new Pusher(key);
-  var channel = pusher.subscribe('messages-channel');
+  var channel = pusher.subscribe('subscribe-messages');
   channel.bind('new-message', function(data) {
     var params = {
       css: data.user == $("#alias").val() ? "success" : "info",

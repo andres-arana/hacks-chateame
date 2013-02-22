@@ -1,7 +1,7 @@
 google = require "passport-google"
 
 strategyParams =
-  returnURL: "#{process.env.REALM}/chat"
+  returnURL: "#{process.env.REALM}/auth/google/return"
   realm: process.env.REALM
 
 module.exports = ->

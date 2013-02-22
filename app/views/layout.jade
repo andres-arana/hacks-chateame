@@ -7,11 +7,12 @@ html
     link(href="assets/css/main.css", rel="stylesheet")
   body
     .container
-      .navbar.navbar-inverse
+      .navbar
         .navbar-inner
           a.brand(href="#") Chatea.me
-          .navbar-text
+          span.navbar-text
             small super simple chat room
+          block navbar
       block content
     script(src="http://code.jquery.com/jquery.js")
     script(src="assets/js/bootstrap.min.js")
