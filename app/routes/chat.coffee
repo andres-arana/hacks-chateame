@@ -11,10 +11,15 @@ module.exports = (app) ->
     res.render "chat",
       pusherKey: process.env.PUSHER_APP_KEY
 
+  app.post '/chat/channel', (req, res) ->
+    response = pusher.auth req.body.socket_id, req.body.channel_name, 
+      user_id: req.user.email
+    res.json response
+
   app.post '/chat/messages', requiresLogin, (req, res) ->
     params = 
-      user: req.user.displayName
+      user: req.user.email
       message: req.body.message
-    pusher.trigger 'subscribe-messages', 'new-message', params, null, (err) ->
+    pusher.trigger 'presence-messages', 'new-message', params, null, (err) ->
       console.log err
 

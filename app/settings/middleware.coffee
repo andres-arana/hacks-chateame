@@ -3,9 +3,9 @@ google = require "../middleware/passport-google"
 passport = require "passport"
 passport.use google()
 passport.serializeUser = (user, done) ->
-  done null, user.displayName
+  done null, user.email
 passport.deserializeUser = (user, done) ->
-  done null, { displayName: user }
+  done null, { email: user }
 
 module.exports = (app, express) ->
   app.use express.logger()

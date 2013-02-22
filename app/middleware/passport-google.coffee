@@ -6,4 +6,6 @@ strategyParams =
 
 module.exports = ->
   new google.Strategy strategyParams, (id, profile, done) ->
-    done null, profile
+    done null, 
+      email: profile.emails[0].value
+
