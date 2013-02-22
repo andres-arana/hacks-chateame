@@ -25,11 +25,11 @@ block content
   #chat
 
   script#system-message(type="text/x-handlebars-template")
-    <div><strong>System</strong>: {{message}}</div>
+    <p class="muted"><strong>System</strong>: {{message}}</p>
 
   script#user-message(type="text/x-handlebars-template")
     <div class="{{css}}"><strong>{{user}}</strong>: {{message}}</div>
 
   script#member-mov-message(type="text/x-handlebars-template")
-    <div class="alert alert-{{css}}"><strong>{{user}}</strong> {{message}}</div>
+    <p class="{{css}}"><strong>{{user}}</strong> {{message}}</p>
 

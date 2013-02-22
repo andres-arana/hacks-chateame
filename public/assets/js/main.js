@@ -24,7 +24,7 @@ $(document).ready(function() {
   channel.bind('new-message', function(data) {
     var me = channel.members.me.id;
     var params = {
-      css: data.user == me ? "well" : "alert alert-info",
+      css: data.user == me ? "alert" : "alert alert-info",
       user: data.user,
       message: data.message
     };
@@ -33,16 +33,16 @@ $(document).ready(function() {
 
   channel.bind('pusher:subscription_succeeded', function(members) {
     members.each(function(m) {
-      message(templates.memberMessage({css: 'success', user: m.id, message: 'joined'}));
+      message(templates.memberMessage({css: 'text-success', user: m.id, message: 'joined'}));
     });
   });
 
   channel.bind('pusher:member_added', function(m) {
-    message(templates.memberMessage({css: 'success', user: m.id, message: 'joined'}));
+    message(templates.memberMessage({css: 'text-success', user: m.id, message: 'joined'}));
   });
 
   channel.bind('pusher:member_removed', function(m) {
-    message(templates.memberMessage({css: 'error', user: m.id, message: 'left'}));
+    message(templates.memberMessage({css: 'text-error', user: m.id, message: 'left'}));
   });
 
   message(templates.systemMessage({message: "Welcome to Chatea.me"}));
