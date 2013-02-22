@@ -1,4 +1,4 @@
-hacks-chateame
-==============
+# Chateame
 
-Small experiment on realtime chatting
+Simple realtime chat room experiment using [node](http://nodejs.org/) and
+[pusher](http://pusher.com/).
